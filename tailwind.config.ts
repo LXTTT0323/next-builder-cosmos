@@ -141,6 +141,9 @@ export default {
         'space-gradient': 'linear-gradient(to bottom, #050A1A, #0F172A)',
         'nebula-pattern': 'url("/images/nebula-bg.svg")',
         'stars-pattern': 'radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)'
+      },
+      textColor: {
+        foreground: 'hsl(var(--foreground))'
       }
     }
   },
