@@ -7,6 +7,7 @@ export default {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
+    "./src/index.css",
   ],
   prefix: "",
   theme: {
@@ -63,6 +64,15 @@ export default {
           'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))'
+        },
+        'space': {
+          'dark': '#050A1A',
+          'blue': '#0B1437',
+          'navy': '#0F172A',
+          'highlight': '#4ADEFF',
+          'accent': '#8B5CF6',
+          'accent-light': '#A78BFA',
+          'nebula': '#D946EF'
         }
       },
       borderRadius: {
@@ -125,17 +135,6 @@ export default {
       fontFamily: {
         'sans': ['Inter', 'system-ui', 'sans-serif'],
         'mono': ['Space Mono', 'monospace']
-      },
-      colors: {
-        'space': {
-          'dark': '#050A1A',
-          'blue': '#0B1437',
-          'navy': '#0F172A',
-          'highlight': '#4ADEFF',
-          'accent': '#8B5CF6',
-          'accent-light': '#A78BFA',
-          'nebula': '#D946EF'
-        }
       },
       backgroundImage: {
         'space-gradient': 'linear-gradient(to bottom, #050A1A, #0F172A)',
