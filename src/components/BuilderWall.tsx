@@ -13,7 +13,7 @@ const mysteriousBuilders = [
       revenue: "$110K MRR",
       generation: "Gen Z (2004)"
     },
-    position: { top: "10%", left: "8%" }
+    position: { top: "15%", left: "1%" }
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const mysteriousBuilders = [
       revenue: "$25K MRR",
       generation: "Gen Z (2005)"
     },
-    position: { top: "10%", left: "65%" }
+    position: { top: "15%", left: "80%" }
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const mysteriousBuilders = [
       revenue: "$450K MRR",
       generation: "Gen Z (2003)"
     },
-    position: { top: "40%", left: "45%" }
+    position: { top: "50%", left: "75%" }
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ const mysteriousBuilders = [
       revenue: "$90K MRR",
       generation: "Gen Z (2006)"
     },
-    position: { top: "70%", left: "20%" }
+    position: { top: "75%", left: "10%" }
   },
   {
     id: 5,
@@ -61,7 +61,67 @@ const mysteriousBuilders = [
       revenue: "$40K MRR",
       generation: "Gen Z (2002)"
     },
-    position: { top: "70%", left: "80%" }
+    position: { top: "80%", left: "78%" }
+  },
+  {
+    id: 6,
+    avatar: "🎮",
+    hint: "Gaming Metaverse",
+    details: {
+      project: "Virtual Reality Platform",
+      funding: "$3M Seed",
+      revenue: "$80K MRR",
+      generation: "Gen Z (2005)"
+    },
+    position: { top: "40%", left: "15%" }
+  },
+  {
+    id: 7,
+    avatar: "🧬",
+    hint: "Biotech Pioneer",
+    details: {
+      project: "Gene Editing Platform",
+      funding: "$12M Series A",
+      revenue: "$200K MRR",
+      generation: "Gen Z (2003)"
+    },
+    position: { top: "35%", left: "50%" }
+  },
+  {
+    id: 8,
+    avatar: "🛸",
+    hint: "Space Explorer",
+    details: {
+      project: "Satellite Network",
+      funding: "$20M Seed",
+      revenue: "$300K MRR",
+      generation: "Gen Z (2004)"
+    },
+    position: { top: "10%", left: "35%" }
+  },
+  {
+    id: 9,
+    avatar: "🤝",
+    hint: "Social Impact",
+    details: {
+      project: "Education Platform",
+      funding: "$5M Seed",
+      revenue: "$150K MRR",
+      generation: "Gen Z (2005)"
+    },
+    position: { top: "62%", left: "40%" }
+  },
+  {
+    id: 10,
+    avatar: "🔋",
+    hint: "Clean Tech",
+    details: {
+      project: "Battery Innovation",
+      funding: "$8M Series A",
+      revenue: "$180K MRR",
+      generation: "Gen Z (2004)"
+    },
+    position: { top: "90%", left: "45%" }
   }
 ];
 
@@ -103,15 +163,15 @@ const MysteriousCard = ({ builder, isVisible }: { builder: any, isVisible: boole
         <div
           className={`relative p-6 rounded-xl backdrop-blur-sm border transition-all duration-500 ${
             isActivated
-              ? 'bg-space-navy/90 border-space-highlight/30 shadow-lg shadow-space-highlight/20'
-              : 'bg-space-navy/20 border-white/5'
+              ? 'bg-white/10 border-space-highlight/50 shadow-lg shadow-space-highlight/30'
+              : 'bg-white/5 border-white/10'
           }`}
         >
           {/* 头像和提示 */}
           <div className="flex items-center gap-4 mb-4">
             <div className="text-4xl">{builder.avatar}</div>
             <div className={`text-lg font-medium transition-all duration-500 ${
-              isActivated ? 'text-space-highlight' : 'text-gray-400'
+              isActivated ? 'text-white' : 'text-gray-200'
             }`}>
               {builder.hint}
             </div>
@@ -121,15 +181,15 @@ const MysteriousCard = ({ builder, isVisible }: { builder: any, isVisible: boole
           <div className={`space-y-2 transition-all duration-500 ${
             isActivated ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
           }`}>
-            <div className="text-sm text-gray-300">{builder.details.funding}</div>
-            <div className="text-sm text-gray-300">{builder.details.revenue}</div>
-            <div className="text-sm text-gray-300">{builder.details.generation}</div>
+            <div className="text-sm text-gray-200">{builder.details.funding}</div>
+            <div className="text-sm text-gray-200">{builder.details.revenue}</div>
+            <div className="text-sm text-gray-200">{builder.details.generation}</div>
           </div>
 
           {/* 神秘光点装饰 */}
           <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2">
-            <div className={`w-1 h-1 rounded-full transition-all duration-500 ${
-              isActivated ? 'bg-space-highlight shadow-lg shadow-space-highlight/50' : 'bg-white/20'
+            <div className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${
+              isActivated ? 'bg-white shadow-lg shadow-white/50' : 'bg-white/30'
             }`} />
           </div>
         </div>
@@ -178,27 +238,35 @@ const BuilderWall = () => {
         </p>
         
         {/* 建设者卡片墙 */}
-        <div className="relative w-full h-[800px] max-w-[1200px] mx-auto">
+        <div className="relative w-full h-[1000px] max-w-[1600px] mx-auto">
           {/* 连接线 */}
           <svg 
             className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
-              isVisible ? 'opacity-20' : 'opacity-0'
+              isVisible ? 'opacity-30' : 'opacity-0'
             }`}
             style={{ strokeDasharray: "5,5" }}
+            preserveAspectRatio="none"
           >
             {mysteriousBuilders.map((builder, i) => {
-              const next = mysteriousBuilders[(i + 1) % mysteriousBuilders.length];
-              return (
+              const connections = [
+                (i + 1) % mysteriousBuilders.length,
+                (i + 2) % mysteriousBuilders.length,
+              ];
+              
+              return connections.map((nextIndex, connectionIndex) => (
                 <line
-                  key={i}
-                  x1={builder.position.left}
-                  y1={builder.position.top}
-                  x2={next.position.left}
-                  y2={next.position.top}
-                  stroke="rgba(74, 222, 255, 0.3)"
+                  key={`${i}-${connectionIndex}`}
+                  x1={`${builder.position.left}`}
+                  y1={`${builder.position.top}`}
+                  x2={`${mysteriousBuilders[nextIndex].position.left}`}
+                  y2={`${mysteriousBuilders[nextIndex].position.top}`}
+                  stroke="rgba(255, 255, 255, 0.4)"
                   strokeWidth="1"
+                  style={{
+                    opacity: 0.6 - connectionIndex * 0.2
+                  }}
                 />
-              );
+              ));
             })}
           </svg>
 
@@ -206,12 +274,12 @@ const BuilderWall = () => {
           {mysteriousBuilders.map((builder, i) => (
             <div
               key={`node-${i}`}
-              className="absolute w-2 h-2 rounded-full bg-space-highlight/50"
+              className="absolute w-2 h-2 rounded-full bg-white/70"
               style={{
                 top: builder.position.top,
                 left: builder.position.left,
                 transform: 'translate(-50%, -50%)',
-                boxShadow: '0 0 10px rgba(74, 222, 255, 0.5)',
+                boxShadow: '0 0 15px rgba(255, 255, 255, 0.6)',
                 transition: 'all 0.5s ease-in-out',
               }}
             />
